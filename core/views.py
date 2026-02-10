@@ -90,10 +90,10 @@ def home(request):
         is_home=True,
         formulario_enviado=formulario_enviado,
 
-        page_title="Od. Alessandrello | Odontopediatra Infantil",
+        page_title="Od. Alessandrello | Odontopediatría Bebés, niños y adolescentes",
 
         page_description=(
-            "Odontopediatra infantil en Buenos Aires. Atención especializada para bebés, niños y adolescentes. "
+            "Odontopediatría Bebés, niños y adolescentes en Buenos Aires. Atención especializada para bebés, niños y adolescentes. "
             "Consultorio cálido, técnicas mínimamente invasivas y turnos rápidos por WhatsApp."
         ),
 
