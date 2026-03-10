@@ -1,122 +1,185 @@
 {% extends "myapp/base.html" %}
 {% load static %}
 
-{% block title %}Od. Alessandrello | Odontopediatría Bebés, niños y adolescentes{% endblock %}
+{% block title %}Od. Alessandrello | Odontología integral para todas las edades{% endblock %}
 
 {% block content %}
 
-  <!-- HERO -->
-  <div class="untree_co-hero" id="home-section">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-12">
-          <div class="dots"></div>
-          <div class="row align-items-center">
+<!-- HERO -->
+<div class="untree_co-hero" id="home-section">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-12">
+        <div class="dots"></div>
+        <div class="row align-items-center">
 
-            <div class="col-lg-7 ml-auto order-lg-2" data-aos="fade-right" data-aos-delay="400">
-              <img src="{% static 'img/hero.webp' %}" alt="Od. Alessandrello" class="img-fluid">
-            </div>
+          <div class="col-lg-7 ml-auto order-lg-2" data-aos="fade-right" data-aos-delay="400">
+            <img src="{% static 'img/hero.webp' %}" alt="Od. Alessandrello" class="img-fluid">
+          </div>
 
-            <div class="col-lg-5">
-              <h1 class="heading" data-aos="fade-up" data-aos-delay="0">
-                Odontopediatría</h1>
-                <h2> Bebés, niños y adolescentes. </h2>
-              
+          <div class="col-lg-5">
+            <h1 class="heading" data-aos="fade-up" data-aos-delay="0">
+              Odontología integral
+            </h1>
+            <h2 data-aos="fade-up" data-aos-delay="50">
+              Para todas las edades
+            </h2>
 
-              <div class="excerpt" data-aos="fade-up" data-aos-delay="100">
-                <p><span class="highlight">Atención odontológica especializada y personalizada,</span></p>
-                <p>
-                  Mi objetivo es cuidar la salud bucal de cada niño desde sus primeros años, acompañando su crecimiento con prevención y educación. 
-                   
-                </p>
-                <p><span class="highlight">Trabajando en conjunto con la familia,</span> generando un vínculo cercano y profesional que nos permita construir hábitos saludables y sostenibles en el tiempo.</p>
-              </div>
-
-              <p data-aos="fade-up" data-aos-delay="200">
-                <a href="#contact-section" class="btn btn-primary smoothscroll">consultar</a>
-                <a href="#productos-section" class="btn btn-outline-primary smoothscroll">SERVICIOS</a>
+            <div class="excerpt" data-aos="fade-up" data-aos-delay="100">
+              <p>
+                <span class="highlight">Especialistas en odontopediatría, implantología y rehabilitación oral.</span>
+              </p>
+              <p>
+                Acompañamos a cada paciente en el cuidado de su salud bucal a lo largo de toda su vida, con una atención cercana, profesional y personalizada.
+              </p>
+              <p>
+                Nuestro objetivo es brindar tratamientos integrales en un espacio cálido y de confianza, priorizando la prevención, la estética y la funcionalidad.
               </p>
             </div>
 
+            <p data-aos="fade-up" data-aos-delay="200">
+              <a href="#contact-section" class="btn btn-primary smoothscroll">Solicitar turno</a>
+              <a href="#servicios-section" class="btn btn-outline-primary smoothscroll">Servicios</a>
+            </p>
           </div>
+
         </div>
       </div>
     </div>
   </div>
-  <!-- /HERO -->
+</div>
+<!-- /HERO -->
+
 {% load static %}
 
-<!-- SERVICIOS + CARRUSEL -->
-<div class="untree_co-section bg-light">
+<!-- SERVICIOS -->
+<div class="untree_co-section bg-light" id="servicios-section">
   <div class="container">
-    <div class="row justify-content-between">
 
-      <!-- LISTA SERVICIOS -->
-      <div class="col-lg-5 order-lg-2 js-custom-dots">
+    <!-- Header -->
+    <div class="row mb-5">
+      <div class="col-12 text-center" data-aos="fade-up">
+        <span class="caption">Nuestros servicios</span>
+        <h2 class="heading">Elegí la atención que necesitás</h2>
 
-        <!-- Servicio 1 -->
-        <a href="#contact-section" class="service link horizontal d-flex active" data-aos="fade-left" data-aos-delay="0">
-          <div class="service-icon color-1 mb-4">🦷</div>
-          <div class="service-contents">
-            <h3>Prevención y controles</h3>
-            <p>Limpieza, flúor y selladores para evitar caries y mantener dientes sanos.</p>
+        <div class="row mb-4">
+          <div class="col-12 text-center">
+            <div class="visita-gratis">
+              <span class="icon-check-circle"></span>
+              <strong>Turnos por WhatsApp</strong> de forma rápida y simple
+            </div>
           </div>
-        </a>
+        </div>
 
-        <!-- Servicio 2 -->
-        <a href="#contact-section" class="service link horizontal d-flex" data-aos="fade-left" data-aos-delay="100">
-          <div class="service-icon color-2 mb-4">👶</div>
-          <div class="service-contents">
-            <h3>Primera consulta del bebé</h3>
-            <p>Seguimiento del crecimiento dental y orientación para mamá y papá.</p>
+        <p>
+          Conocé nuestras áreas de atención y elegí la mejor opción para vos o tu familia.
+        </p>
+      </div>
+    </div>
+
+    <div class="row g-4">
+
+      <!-- Odontopediatría -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="50">
+        <div class="pricing product-card">
+          <div class="product-image">
+            <img src="{% static 'img/atencion-nino.jpg' %}"
+                 alt="Odontopediatría">
           </div>
-        </a>
-
-        <!-- Servicio 3 -->
-        <a href="#contact-section" class="service link horizontal d-flex" data-aos="fade-left" data-aos-delay="200">
-          <div class="service-icon color-3 mb-4">🛠</div>
-          <div class="service-contents">
-            <h3>Tratamientos restauradores</h3>
-            <p>Caries, obturaciones y urgencias con técnicas modernas y mínimamente invasivas.</p>
+          <div class="body">
+            <h3 class="mb-2">Odontopediatría</h3>
+            <p class="mb-3">
+              Atención especializada para bebés, niños y adolescentes, acompañando cada etapa del crecimiento.
+            </p>
+            <p class="text-center mb-0">
+              <a href="#contact-section" class="btn btn-outline-primary">
+                Solicitar turno
+              </a>
+            </p>
           </div>
-        </a>
-
-        <!-- Servicio 4 -->
-        <a href="#contact-section" class="service link horizontal d-flex" data-aos="fade-left" data-aos-delay="300">
-          <div class="service-icon color-4 mb-4">😊</div>
-          <div class="service-contents">
-            <h3>Odontología sin miedo</h3>
-            <p>Juegos, paciencia y contención para que cada visita sea tranquila y positiva.</p>
-          </div>
-        </a>
-
+        </div>
       </div>
 
-      <!-- CARRUSEL IMÁGENES -->
-      <div class="col-lg-7">
-        <div class="img-shadow">
-          <div class="owl-single no-dots owl-carousel">
+      <!-- Odontología General -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="pricing product-card">
+          <div class="product-image">
+            <img src="{% static 'img/consultorio-1.jpg' %}"
+                 alt="Odontología general">
+          </div>
+          <div class="body">
+            <h3 class="mb-2">Odontología general</h3>
+            <p class="mb-3">
+              Controles, diagnóstico, prevención y tratamientos para cuidar tu salud bucal de forma integral.
+            </p>
+            <p class="text-center mb-0">
+              <a href="#contact-section" class="btn btn-outline-primary">
+                Solicitar turno
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
 
-            <div class="item">
-              <span class="number">1/4</span>
-              <img src="{% static 'img/consultorio-1.jpg' %}" alt="Consultorio" class="img-fluid">
-            </div>
+      <!-- Implantología -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="150">
+        <div class="pricing product-card">
+          <div class="product-image">
+            <img src="{% static 'img/consultorio.jpeg' %}"
+                 alt="Implantología dental">
+          </div>
+          <div class="body">
+            <h3 class="mb-2">Implantología</h3>
+            <p class="mb-3">
+              Soluciones funcionales y estéticas para recuperar piezas dentarias y mejorar tu calidad de vida.
+            </p>
+            <p class="text-center mb-0">
+              <a href="#contact-section" class="btn btn-outline-primary">
+                Solicitar turno
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
 
-            <div class="item">
-              <span class="number">2/4</span>
-              <img src="{% static 'img/atencion-nino.jpg' %}" alt="Atención niño" class="img-fluid">
-            </div>
+      <!-- Rehabilitación Oral -->
+      <div class="col-md-6 col-lg-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="pricing active product-card">
+          <div class="product-image">
+            <img src="{% static 'img/familia-sonriendo.jpg' %}"
+                 alt="Rehabilitación oral">
+          </div>
+          <div class="body">
+            <h3 class="mb-2">Rehabilitación oral</h3>
+            <p class="mb-3">
+              Tratamientos orientados a recuperar función, estética y armonía en la sonrisa con un enfoque integral.
+            </p>
+            <p class="text-center mb-0">
+              <a href="#contact-section" class="btn btn-primary">
+                Solicitar turno
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
 
-            <div class="item">
-              <span class="number">3/4</span>
-              <img src="{% static 'img/cepillado.jpg' %}" alt="Educación dental" class="img-fluid">
-            </div>
-
-            <div class="item">
-              <span class="number">4/4</span>
-              <img src="{% static 'img/familia-sonriendo.jpg' %}" alt="Familia feliz" class="img-fluid">
-            </div>
-
+      <!-- Consulta / Primera visita -->
+      <div class="col-md-6 col-lg-6" data-aos="fade-up" data-aos-delay="250">
+        <div class="pricing active product-card">
+          <div class="product-image">
+            <img src="{% static 'img/hero.webp' %}"
+                 alt="Consulta odontológica personalizada">
+          </div>
+          <div class="body">
+            <h3 class="mb-2">Consulta personalizada</h3>
+            <p class="mb-3">
+              Evaluamos cada caso de manera individual para acompañarte con un plan de atención adecuado a tu necesidad.
+            </p>
+            <p class="text-center mb-0">
+              <a href="#contact-section" class="btn btn-primary">
+                Consultar ahora
+              </a>
+            </p>
           </div>
         </div>
       </div>
@@ -124,8 +187,7 @@
     </div>
   </div>
 </div>
-<!-- /SERVICIOS + CARRUSEL -->
-
+<!-- /SERVICIOS -->
 
 <!-- BENEFICIOS -->
 <div class="untree_co-section" id="features-section">
@@ -133,40 +195,39 @@
     <div class="row justify-content-between">
 
       <div class="col-lg-4">
-        <span class="caption" data-aos="fade-up" data-aos-delay="0">BENEFICIOS</span>
+        <span class="caption" data-aos="fade-up" data-aos-delay="0">ATENCIÓN INTEGRAL</span>
 
         <h3 class="heading mb-4" data-aos="fade-up" data-aos-delay="100">
-          Atención dental pensada 100% para niños
+          Cuidado odontológico cercano, profesional y personalizado
         </h3>
 
         <div class="mb-4" data-aos="fade-up" data-aos-delay="200">
           <p>
-            Creamos un espacio cálido y amigable para que tu hijo se sienta seguro desde el primer minuto.
-            Nuestro enfoque es prevenir, acompañar y cuidar su sonrisa con paciencia y contención.
+            Brindamos atención odontológica para todas las edades, adaptando cada tratamiento a las necesidades de cada paciente y etapa de vida.
           </p>
 
           <ul class="list-unstyled ul-check primary">
-            <li>Ambiente infantil, cómodo y sin estrés</li>
-            <li>Técnicas modernas y mínimamente invasivas</li>
-            <li>Explicaciones claras para mamá y papá</li>
+            <li>Atención para niños, adolescentes y adultos</li>
+            <li>Prevención, diagnóstico y tratamiento integral</li>
+            <li>Seguimiento profesional con enfoque humano</li>
           </ul>
         </div>
 
         <div class="mb-4" data-aos="fade-up" data-aos-delay="300">
           <div class="untree_co-testimonial d-flex">
             <div class="text">
-             <blockquote>
-  &ldquo;Acompaño a cada niño con paciencia y cariño,
-  <span class="highlight">porque una buena experiencia dental en la infancia marca toda su vida</span>.&rdquo;
-</blockquote>
+              <blockquote>
+                &ldquo;Nuestro compromiso es acompañar a cada paciente en el cuidado de su salud oral,
+                <span class="highlight">con tratamientos pensados para cada etapa de la vida</span>.&rdquo;
+              </blockquote>
 
               <div class="author d-flex">
                 <div class="pic mr-3">
-                  <img src="{% static 'img/person_4.jpeg' %}" alt="Paciente" class="img-fluid">
+                  <img src="{% static 'img/person_4.jpeg' %}" alt="Profesional" class="img-fluid">
                 </div>
                 <div>
                   <strong class="d-block">Milton I. Alessandrello</strong>
-                  <span>Odontopediatra - UBA</span>
+                  <span>Odontología integral</span>
                 </div>
               </div>
             </div>
@@ -183,7 +244,7 @@
               <path d="M11.596 8.697l-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
             </svg>
           </span>
-          <img src="{% static 'img/consultorio.jpeg' %}" alt="Consultorio odontopediátrico" class="img-fluid img-shadow">
+          <img src="{% static 'img/consultorio.jpeg' %}" alt="Consultorio odontológico" class="img-fluid img-shadow">
         </a>
       </div>
 
@@ -192,13 +253,9 @@
 </div>
 <!-- /BENEFICIOS -->
 
-  
 
 {% include "myapp/partials/testimonials_google.html" %}
-
 {% include "myapp/partials/about_section.html" %}
-
-  <!-- CONTACTO reutilizable -->
-  {% include "myapp/partials/contact_section.html" %}
+{% include "myapp/partials/contact_section.html" %}
 
 {% endblock %}

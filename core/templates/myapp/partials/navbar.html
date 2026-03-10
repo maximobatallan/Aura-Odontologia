@@ -2,12 +2,12 @@
 
 <nav class="site-nav dark js-site-navbar mb-5 site-navbar-target">
   <div class="container">
-    <div class="site-navigation">
+    <div class="site-navigation d-flex align-items-center justify-content-between">
 
       <!-- LOGO -->
-      <a href="{% url 'myapp:home' %}" class="logo m-0 float-left d-flex align-items-center">
+      <a href="{% url 'myapp:home' %}" class="logo m-0 d-flex align-items-center">
         <img src="{% static 'img/logo.webp' %}"
-             alt="Od. Alessandrello Odontopediatría Bebés, niños y adolescentes"
+             alt="Od. Alessandrello Odontología integral para todas las edades"
              class="logo-pc mr-2">
         <span class="logo-text">
           Od. Alessandrello<span class="text-primary">.</span>
@@ -15,44 +15,79 @@
       </a>
 
       <!-- MENU -->
-      <ul class="js-clone-nav d-none d-lg-inline-block site-menu float-left">
+      <ul class="js-clone-nav d-none d-lg-inline-block site-menu">
 
         <li class="{% if is_home %}active{% endif %}">
-          <a href="#home-section" class="nav-link">Inicio</a>
+          <a href="{% if is_home %}#home-section{% else %}{% url 'myapp:home' %}#home-section{% endif %}" class="nav-link">
+            Inicio
+          </a>
         </li>
 
-        <!-- SERVICIOS (reemplaza Productos) -->
-      <li class="has-children">
-  <a class="nav-link js-collapse-toggle"
-     data-toggle="collapse"
-     href="#collapseItem0"
-     role="button"
-     aria-expanded="false"
-     aria-controls="collapseItem0">
-    Servicios
-  </a>
+        <li class="has-children">
+          <a href="{% if is_home %}#servicios-section{% else %}{% url 'myapp:home' %}#servicios-section{% endif %}" class="nav-link">
+            Servicios
+          </a>
 
-<ul class="dropdown">
-  <li><a href="{% url 'myapp:servicio_prevencion' %}">Prevención y controles</a></li>
-  <li><a href="{% url 'myapp:servicio_bebe' %}">Primera consulta del bebé</a></li>
-  <li><a href="{% url 'myapp:servicio_restauradores' %}">Tratamientos restauradores</a></li>
-  <li><a href="{% url 'myapp:servicio_sin_miedo' %}">Odontología sin miedo</a></li>
-  <li><a href="{% url 'myapp:servicio_educacion' %}">Educación y hábitos</a></li>
-</ul>
+          <ul class="dropdown">
+            <li>
+              <a href="{% if is_home %}#servicios-section{% else %}{% url 'myapp:home' %}#servicios-section{% endif %}">
+                Odontopediatría
+              </a>
+            </li>
 
-</li>
+            <li>
+              <a href="{% if is_home %}#servicios-section{% else %}{% url 'myapp:home' %}#servicios-section{% endif %}">
+                Odontología general
+              </a>
+            </li>
 
+            <li>
+              <a href="{% if is_home %}#servicios-section{% else %}{% url 'myapp:home' %}#servicios-section{% endif %}">
+                Implantología
+              </a>
+            </li>
 
-        <li><a href="#features-section" class="nav-link">Beneficios</a></li>
-        <li><a href="#testimonials-section" class="nav-link">Reseñas</a></li>
-        <li><a href="#about-section" class="nav-link">Sobre mí</a></li>
-        <li><a href="#contact-section" class="nav-link">Contacto</a></li>
+            <li>
+              <a href="{% if is_home %}#servicios-section{% else %}{% url 'myapp:home' %}#servicios-section{% endif %}">
+                Rehabilitación oral
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="{% if is_home %}#testimonials-section{% else %}{% url 'myapp:home' %}#testimonials-section{% endif %}" class="nav-link">
+            Reseñas
+          </a>
+        </li>
+
+        <li>
+          <a href="{% if is_home %}#about-section{% else %}{% url 'myapp:home' %}#about-section{% endif %}" class="nav-link">
+            Sobre mí
+          </a>
+        </li>
+
+        <li>
+          <a href="{% if is_home %}#contact-section{% else %}{% url 'myapp:home' %}#contact-section{% endif %}" class="nav-link">
+            Contacto
+          </a>
+        </li>
 
       </ul>
 
+      <!-- CTA TURNOS (DERECHA) -->
+      <div class="d-none d-lg-inline-block">
+        <a href="{% if is_home %}#contact-section{% else %}{% url 'myapp:home' %}#contact-section{% endif %}"
+           class="btn btn-primary">
+          Turnos
+        </a>
+      </div>
+
       <!-- BURGER MOBILE -->
-      <a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block dark d-lg-none"
-         data-toggle="collapse" data-target="#main-navbar">
+      <a href="#"
+         class="burger ml-3 site-menu-toggle js-menu-toggle d-inline-block dark d-lg-none"
+         data-toggle="collapse"
+         data-target="#main-navbar">
         <span></span>
       </a>
 

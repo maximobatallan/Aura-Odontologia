@@ -89,18 +89,19 @@ def home(request):
     ctx = _base_context(
         is_home=True,
         formulario_enviado=formulario_enviado,
-
-        page_title="Od. Alessandrello | Odontopediatría Bebés, niños y adolescentes",
+        page_title="Od. Alessandrello | Odontología integral para todas las edades",
 
         page_description=(
-            "Odontopediatría Bebés, niños y adolescentes en Buenos Aires. Atención especializada para bebés, niños y adolescentes. "
-            "Consultorio cálido, técnicas mínimamente invasivas y turnos rápidos por WhatsApp."
+            "Odontología integral para todas las edades. Especialistas en odontopediatría, implantología y rehabilitación oral. "
+            "Atención profesional, cercana y personalizada con turnos por WhatsApp."
         ),
+
+        whatsapp_text="Hola, quiero sacar un turno. ¿Me pasan disponibilidad?",
+    
 
         producto="general",  # podés mantenerlo por compatibilidad interna
         origen=origen,
 
-        whatsapp_text="Hola, quiero sacar un turno para odontopediatría. ¿Me pasan disponibilidad?",
     )
 
     return render(request, "myapp/pages/home.html", ctx)
