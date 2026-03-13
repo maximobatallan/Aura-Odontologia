@@ -22,7 +22,16 @@ body {
   body.offcanvas-menu:before {
     opacity: 1;
     visibility: visible; }
+.footer-contact-list li {
+  white-space: nowrap;
+}
 
+.footer-contact-list li a.contact-link {
+  display: inline-block;
+  white-space: nowrap;
+  word-break: normal;
+  overflow-wrap: normal;
+}
 .text-black {
   color: #000000 !important; }
 

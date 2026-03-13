@@ -186,7 +186,7 @@ def odontopediatria(request):
         page_description="Especialistas en odontopediatría. Atención odontológica para bebés, niños y adolescentes con enfoque preventivo y cuidado integral.",
         producto="odontopediatria",
         origen=origen,
-        whatsapp_text="Hola, quiero sacar un turno para odontopediatría. ¿Me pasan disponibilidad?",
+        whatsapp_text="Hola, quiero sacar un turno para odontopediatría.",
     )
     return render(request, "myapp/servicios/odontopediatria.html", ctx)
 
@@ -200,7 +200,7 @@ def odontologia_general(request):
         page_description="Odontología general para todas las edades. Diagnóstico, limpieza, tratamientos restauradores y cuidado integral de la salud bucal.",
         producto="odontologia_general",
         origen=origen,
-        whatsapp_text="Hola, quiero consultar por odontología general. ¿Me pasan disponibilidad?",
+        whatsapp_text="Hola, quiero consultar por odontología general.",
     )
     return render(request, "myapp/servicios/odontologia_general.html", ctx)
 
@@ -214,6 +214,6 @@ def implantologia(request):
         page_description="Implantes dentales para recuperar función y estética. Tratamientos modernos con planificación digital y materiales de alta calidad.",
         producto="implantologia",
         origen=origen,
-        whatsapp_text="Hola, quiero consultar por implantes dentales. ¿Me pasan información?",
+        whatsapp_text="Hola, quiero consultar por implantes dentales.",
     )
     return render(request, "myapp/servicios/implantologia.html", ctx)
