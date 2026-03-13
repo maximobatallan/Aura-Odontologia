@@ -1,0 +1,71 @@
+{% extends "myapp/servicios/base_servicio.html" %}
+{% load static %}
+
+{% block title %}Odontología General | Od. Alessandrello{% endblock %}
+
+{% block producto_imagen %}
+  <img src="{% static 'img/general.png' %}" alt="Odontología general" class="img-fluid">
+{% endblock %}
+
+{% block producto_titulo %}Odontología General{% endblock %}
+
+{% block producto_bajada %}
+  <p>Controles, diagnóstico, prevención y tratamientos para cuidar tu salud bucal de forma integral.</p>
+  <p><span class="highlight">La prevención y el seguimiento</span> son clave para mantener una sonrisa sana.</p>
+{% endblock %}
+
+{% block producto_contenido %}
+<div class="untree_co-section bg-light" id="features-section">
+  <div class="container">
+    <div class="row justify-content-between">
+      <div class="col-lg-5 order-lg-2 js-custom-dots">
+
+        <a href="#" class="service link horizontal d-flex active" data-aos="fade-left" data-aos-delay="0">
+          <div class="service-icon color-1 mb-4">🔎</div>
+          <div class="service-contents">
+            <h3>Diagnóstico integral</h3>
+            <p>Evaluación completa del estado bucal para definir el mejor plan de atención según tu caso.</p>
+          </div>
+        </a>
+
+        <a href="#" class="service link horizontal d-flex" data-aos="fade-left" data-aos-delay="100">
+          <div class="service-icon color-2 mb-4">🪥</div>
+          <div class="service-contents">
+            <h3>Limpieza y prevención</h3>
+            <p>Controles periódicos, profilaxis y recomendaciones para prevenir caries y enfermedad periodontal.</p>
+          </div>
+        </a>
+
+        <a href="#" class="service link horizontal d-flex" data-aos="fade-left" data-aos-delay="200">
+          <div class="service-icon color-3 mb-4">🛠</div>
+          <div class="service-contents">
+            <h3>Tratamientos restauradores</h3>
+            <p>Obturaciones y reconstrucciones para recuperar piezas afectadas por caries o desgaste.</p>
+          </div>
+        </a>
+
+        <a href="#" class="service link horizontal d-flex" data-aos="fade-left" data-aos-delay="300">
+          <div class="service-icon color-4 mb-4">📅</div>
+          <div class="service-contents">
+            <h3>Seguimiento profesional</h3>
+            <p>Controles planificados para sostener resultados y detectar problemas antes de que avancen.</p>
+          </div>
+        </a>
+
+      </div>
+
+      <div class="col-lg-7">
+        <div class="img-shadow">
+          <div class="owl-single no-dots owl-carousel">
+            <div class="item"><span class="number">1/4</span><img src="{% static 'img/servicios/odontologia-general-1.webp' %}" alt="Consulta odontológica" class="img-fluid"></div>
+            <div class="item"><span class="number">2/4</span><img src="{% static 'img/servicios/odontologia-general-2.webp' %}" alt="Control dental" class="img-fluid"></div>
+            <div class="item"><span class="number">3/4</span><img src="{% static 'img/servicios/odontologia-general-3.webp' %}" alt="Odontología preventiva" class="img-fluid"></div>
+            <div class="item"><span class="number">4/4</span><img src="{% static 'img/servicios/odontologia-general-4.webp' %}" alt="Atención integral" class="img-fluid"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+{% endblock %}

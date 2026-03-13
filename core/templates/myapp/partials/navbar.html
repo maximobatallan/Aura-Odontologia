@@ -30,28 +30,24 @@
 
           <ul class="dropdown">
             <li>
-              <a href="{% if is_home %}#servicios-section{% else %}{% url 'myapp:home' %}#servicios-section{% endif %}">
-                Odontopediatría
-              </a>
-            </li>
+  <a href="{% url 'myapp:servicio_odontopediatria' %}">
+    Odontopediatría
+  </a>
+</li>
 
-            <li>
-              <a href="{% if is_home %}#servicios-section{% else %}{% url 'myapp:home' %}#servicios-section{% endif %}">
-                Odontología general
-              </a>
-            </li>
+<li>
+  <a href="{% url 'myapp:servicio_odontologia_general' %}">
+    Odontología general
+  </a>
+</li>
 
-            <li>
-              <a href="{% if is_home %}#servicios-section{% else %}{% url 'myapp:home' %}#servicios-section{% endif %}">
-                Implantología
-              </a>
-            </li>
+<li>
+  <a href="{% url 'myapp:servicio_implantologia' %}">
+    Implantología
+  </a>
+</li>
 
-            <li>
-              <a href="{% if is_home %}#servicios-section{% else %}{% url 'myapp:home' %}#servicios-section{% endif %}">
-                Rehabilitación oral
-              </a>
-            </li>
+            
           </ul>
         </li>
 

@@ -10,7 +10,7 @@ from .models import Formulario
 
 
 WHATSAPP_NUMBER = "5491xxxxxxxxx"
-DIRECCION_LOCAL = "Charcas 2014"
+DIRECCION_LOCAL = "Besares 2477, 3°D"
 
 SERVICIOS = [
     {"key": "prevencion", "nombre": "Prevención y controles", "url_name": "servicio_prevencion"},
@@ -177,85 +177,43 @@ def politicas_privacidad(request):
     )
     return render(request, "myapp/politicas_privacidad.html", ctx)
 
-
-def placas_antihumedad(request):
+def odontopediatria(request):
     origen = detectar_origen(request)
     ctx = _base_context(
         is_home=False,
-        active_producto="placas_antihumedad",
-        page_title="Placas Antihumedad | Od. Alessandrello",
-        page_description="Solución antihumedad con garantía. Venta y colocación. Cotización sin cargo.",
-        producto="placas_antihumedad",
+        active_producto="odontopediatria",
+        page_title="Odontopediatría | Od. Alessandrello",
+        page_description="Especialistas en odontopediatría. Atención odontológica para bebés, niños y adolescentes con enfoque preventivo y cuidado integral.",
+        producto="odontopediatria",
         origen=origen,
-        whatsapp_text="Hola, estoy interesado/a en Placas Antihumedad. ¿Me pasan precios, modelos y tiempos de entrega?",
+        whatsapp_text="Hola, quiero sacar un turno para odontopediatría. ¿Me pasan disponibilidad?",
     )
-    return render(request, "myapp/servicios/placas_antihumedad.html", ctx)
+    return render(request, "myapp/servicios/odontopediatria.html", ctx)
 
-def prevencion_controles(request):
+
+def odontologia_general(request):
     origen = detectar_origen(request)
     ctx = _base_context(
         is_home=False,
-        active_producto="prevencion",
-        page_title="Prevención y Controles | Od. Alessandrello",
-        page_description="Odontología preventiva infantil: controles, limpieza, flúor y selladores para evitar caries y cuidar la sonrisa desde temprano.",
-        producto="prevencion",
+        active_producto="odontologia_general",
+        page_title="Odontología General | Od. Alessandrello",
+        page_description="Odontología general para todas las edades. Diagnóstico, limpieza, tratamientos restauradores y cuidado integral de la salud bucal.",
+        producto="odontologia_general",
         origen=origen,
-        whatsapp_text="Hola, quiero sacar un turno para Prevención y Controles. ¿Me pasan disponibilidad?",
+        whatsapp_text="Hola, quiero consultar por odontología general. ¿Me pasan disponibilidad?",
     )
-    return render(request, "myapp/servicios/prevencion.html", ctx)
+    return render(request, "myapp/servicios/odontologia_general.html", ctx)
 
 
-def primera_consulta_bebe(request):
+def implantologia(request):
     origen = detectar_origen(request)
     ctx = _base_context(
         is_home=False,
-        active_producto="bebe",
-        page_title="Primera Consulta del Bebé | Od. Alessandrello",
-        page_description="Primera consulta odontopediátrica: evaluación del desarrollo dental y guía para mamá y papá sobre hábitos saludables desde el inicio.",
-        producto="bebe",
+        active_producto="implantologia",
+        page_title="Implantología Dental | Od. Alessandrello",
+        page_description="Implantes dentales para recuperar función y estética. Tratamientos modernos con planificación digital y materiales de alta calidad.",
+        producto="implantologia",
         origen=origen,
-        whatsapp_text="Hola, quiero sacar un turno para la Primera Consulta del Bebé. ¿Me pasan disponibilidad?",
+        whatsapp_text="Hola, quiero consultar por implantes dentales. ¿Me pasan información?",
     )
-    return render(request, "myapp/servicios/bebe.html", ctx)
-
-
-def tratamientos_restauradores(request):
-    origen = detectar_origen(request)
-    ctx = _base_context(
-        is_home=False,
-        active_producto="restauradores",
-        page_title="Tratamientos Restauradores | Od. Alessandrello",
-        page_description="Tratamientos para caries y restauraciones infantiles con técnicas modernas y mínimamente invasivas para mayor comodidad.",
-        producto="restauradores",
-        origen=origen,
-        whatsapp_text="Hola, quiero consultar por Tratamientos Restauradores (caries/obturaciones). ¿Me pasan un turno?",
-    )
-    return render(request, "myapp/servicios/restauradores.html", ctx)
-
-
-def odontologia_sin_miedo(request):
-    origen = detectar_origen(request)
-    ctx = _base_context(
-        is_home=False,
-        active_producto="sin_miedo",
-        page_title="Odontología sin Miedo | Od. Alessandrello",
-        page_description="Adaptación, contención emocional y manejo del miedo para que niños y familias vivan una experiencia dental positiva y tranquila.",
-        producto="sin_miedo",
-        origen=origen,
-        whatsapp_text="Hola, mi hijo/a tiene miedo al dentista. ¿Podemos coordinar un turno para adaptación?",
-    )
-    return render(request, "myapp/servicios/sin_miedo.html", ctx)
-
-
-def educacion_habitos(request):
-    origen = detectar_origen(request)
-    ctx = _base_context(
-        is_home=False,
-        active_producto="educacion",
-        page_title="Educación y Hábitos | Od. Alessandrello",
-        page_description="Educación en salud bucal: cepillado, alimentación y hábitos para prevenir caries y cuidar la sonrisa en casa.",
-        producto="educacion",
-        origen=origen,
-        whatsapp_text="Hola, quiero una consulta para educación y hábitos (cepillado/alimentación). ¿Me pasan disponibilidad?",
-    )
-    return render(request, "myapp/servicios/educacion.html", ctx)
+    return render(request, "myapp/servicios/implantologia.html", ctx)
