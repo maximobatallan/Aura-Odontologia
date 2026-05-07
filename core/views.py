@@ -3,23 +3,21 @@ from __future__ import annotations
 
 from django.shortcuts import render, redirect
 from django.urls import reverse
-from django.core.mail import send_mail
 from django.views.decorators.http import require_POST
 from django.core.mail import EmailMessage
 from .models import Formulario
 
 
 WHATSAPP_NUMBER = "5491xxxxxxxxx"
-DIRECCION_LOCAL = "Besares 2477, 3°D"
+DIRECCION_LOCAL = "Besares 2477, 3Â°D"
 
 SERVICIOS = [
-    {"key": "prevencion", "nombre": "Prevención y controles", "url_name": "servicio_prevencion"},
-    {"key": "bebe", "nombre": "Primera consulta del bebé", "url_name": "servicio_bebe"},
+    {"key": "prevencion", "nombre": "PrevenciÃ³n y controles", "url_name": "servicio_prevencion"},
+    {"key": "bebe", "nombre": "Primera consulta del bebÃ©", "url_name": "servicio_bebe"},
     {"key": "restauradores", "nombre": "Tratamientos restauradores", "url_name": "servicio_restauradores"},
-    {"key": "sin_miedo", "nombre": "Odontología sin miedo", "url_name": "servicio_sin_miedo"},
-    {"key": "educacion", "nombre": "Educación y hábitos", "url_name": "servicio_educacion"},
+    {"key": "sin_miedo", "nombre": "OdontologÃ­a sin miedo", "url_name": "servicio_sin_miedo"},
+    {"key": "educacion", "nombre": "EducaciÃ³n y hÃ¡bitos", "url_name": "servicio_educacion"},
 ]
-
 
 
 def _base_context(**extra):
@@ -27,7 +25,7 @@ def _base_context(**extra):
         "servicios_menu": SERVICIOS,
         "telefono_whatsapp": WHATSAPP_NUMBER,
         "direccion_local": DIRECCION_LOCAL,
-        "site_name": "Od. Alessandrello",
+        "site_name": "Aura Odontologia",
     }
     ctx.update(extra)
     return ctx
@@ -59,11 +57,10 @@ def _sanitize_choice(value: str, allowed: set[str], default: str) -> str:
 
 def send_user_data_email(user_data: str) -> None:
     subject = "Nuevo formulario web"
-    body = f"Se registró un nuevo formulario con los siguientes datos:\n\n{user_data}"
+    body = f"Se registrÃ³ un nuevo formulario con los siguientes datos:\n\n{user_data}"
 
     from_email = "notificaciondepaginaweb@gmail.com"
 
-    # Puede ser uno solo o incluso el mismo from_email
     to = ["notificaciondepaginaweb@gmail.com"]
 
     bcc = [
@@ -89,23 +86,18 @@ def home(request):
     ctx = _base_context(
         is_home=True,
         formulario_enviado=formulario_enviado,
-        page_title="Od. Alessandrello | Odontología integral para todas las edades",
-
+        page_title="Aura Odontologia | OdontologÃ­a integral para todas las edades",
         page_description=(
-            "Odontología integral para todas las edades. Especialistas en odontopediatría, implantología y rehabilitación oral. "
-            "Atención profesional, cercana y personalizada con turnos por WhatsApp."
+            "OdontologÃ­a integral para todas las edades. Especialistas en odontopediatrÃ­a, "
+            "implantologÃ­a y rehabilitaciÃ³n oral. AtenciÃ³n profesional, cercana y "
+            "personalizada con turnos por WhatsApp."
         ),
-
-        whatsapp_text="Hola, quiero sacar un turno. ¿Me pasan disponibilidad?",
-    
-
-        producto="general",  # podés mantenerlo por compatibilidad interna
+        whatsapp_text="Hola, quiero sacar un turno. Â¿Me pasan disponibilidad?",
+        producto="general",
         origen=origen,
-
     )
 
     return render(request, "myapp/pages/home.html", ctx)
-
 
 
 @require_POST
@@ -115,14 +107,12 @@ def save_formulario(request):
     email = (request.POST.get("email") or "").strip()
     texto = (request.POST.get("message") or "").strip()
 
-    # choices válidos desde el modelo (no hardcodear)
     servicios_validos = {k for (k, _) in Formulario.SERVICIOS_CHOICES}
     origenes_validos = {k for (k, _) in Formulario.ORIGEN_CHOICES}
 
     producto = _sanitize_choice(request.POST.get("producto"), servicios_validos, "general")
     origen = _sanitize_choice(request.POST.get("origen"), origenes_validos, "directo")
 
-    # Tracking extra
     gclid = (request.POST.get("gclid") or "").strip()
     fbclid = (request.POST.get("fbclid") or "").strip()
 
@@ -132,11 +122,10 @@ def save_formulario(request):
     utm_term = (request.POST.get("utm_term") or "").strip()
     utm_content = (request.POST.get("utm_content") or "").strip()
 
-    # A dónde volver (misma página). Guardamos también landing para análisis.
-    next_url = (request.POST.get("next") or "").strip()  # suele ser request.get_full_path
+    next_url = (request.POST.get("next") or "").strip()
     landing_path = next_url or request.path
 
-    lead = Formulario.objects.create(
+    Formulario.objects.create(
         nombre=nombre,
         telefono=telefono,
         mail=email,
@@ -172,21 +161,22 @@ def save_formulario(request):
 def politicas_privacidad(request):
     ctx = _base_context(
         is_home=False,
-        page_title="Políticas de Privacidad | Od. Alessandrello",
-        page_description="Políticas de privacidad de Od. Alessandrello.",
+        page_title="PolÃ­ticas de Privacidad | Aura Odontologia",
+        page_description="PolÃ­ticas de privacidad de Aura Odontologia.",
     )
     return render(request, "myapp/politicas_privacidad.html", ctx)
+
 
 def odontopediatria(request):
     origen = detectar_origen(request)
     ctx = _base_context(
         is_home=False,
         active_producto="odontopediatria",
-        page_title="Odontopediatría | Od. Alessandrello",
-        page_description="Especialistas en odontopediatría. Atención odontológica para bebés, niños y adolescentes con enfoque preventivo y cuidado integral.",
+        page_title="OdontopediatrÃ­a | Aura Odontologia",
+        page_description="Especialistas en odontopediatrÃ­a. AtenciÃ³n odontolÃ³gica para bebÃ©s, niÃ±os y adolescentes con enfoque preventivo y cuidado integral.",
         producto="odontopediatria",
         origen=origen,
-        whatsapp_text="Hola, quiero sacar un turno para odontopediatría.",
+        whatsapp_text="Hola, quiero sacar un turno para odontopediatrÃ­a.",
     )
     return render(request, "myapp/servicios/odontopediatria.html", ctx)
 
@@ -196,11 +186,11 @@ def odontologia_general(request):
     ctx = _base_context(
         is_home=False,
         active_producto="odontologia_general",
-        page_title="Odontología General | Od. Alessandrello",
-        page_description="Odontología general para todas las edades. Diagnóstico, limpieza, tratamientos restauradores y cuidado integral de la salud bucal.",
+        page_title="OdontologÃ­a General | Aura Odontologia",
+        page_description="OdontologÃ­a general para todas las edades. DiagnÃ³stico, limpieza, tratamientos restauradores y cuidado integral de la salud bucal.",
         producto="odontologia_general",
         origen=origen,
-        whatsapp_text="Hola, quiero consultar por odontología general.",
+        whatsapp_text="Hola, quiero consultar por odontologÃ­a general.",
     )
     return render(request, "myapp/servicios/odontologia_general.html", ctx)
 
@@ -210,8 +200,8 @@ def implantologia(request):
     ctx = _base_context(
         is_home=False,
         active_producto="implantologia",
-        page_title="Implantología Dental | Od. Alessandrello",
-        page_description="Implantes dentales para recuperar función y estética. Tratamientos modernos con planificación digital y materiales de alta calidad.",
+        page_title="ImplantologÃ­a Dental | Aura Odontologia",
+        page_description="Implantes dentales para recuperar funciÃ³n y estÃ©tica. Tratamientos modernos con planificaciÃ³n digital y materiales de alta calidad.",
         producto="implantologia",
         origen=origen,
         whatsapp_text="Hola, quiero consultar por implantes dentales.",

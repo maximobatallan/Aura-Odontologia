@@ -7,10 +7,10 @@
       <!-- LOGO -->
       <a href="{% url 'myapp:home' %}" class="logo m-0 d-flex align-items-center">
         <img src="{% static 'img/logo.webp' %}"
-             alt="Od. Alessandrello Odontología integral para todas las edades"
+             alt="Aura Odontologia odontologia integral para todas las edades"
              class="logo-pc mr-2">
         <span class="logo-text">
-          Od. Alessandrello<span class="text-primary">.</span>
+          Aura Odontologia<span class="text-primary">.</span>
         </span>
       </a>
 
@@ -30,36 +30,34 @@
 
           <ul class="dropdown">
             <li>
-  <a href="{% url 'myapp:servicio_odontopediatria' %}">
-    Odontopediatría
-  </a>
-</li>
+              <a href="{% url 'myapp:servicio_odontopediatria' %}">
+                Odontopediatria
+              </a>
+            </li>
 
-<li>
-  <a href="{% url 'myapp:servicio_odontologia_general' %}">
-    Odontología general
-  </a>
-</li>
+            <li>
+              <a href="{% url 'myapp:servicio_odontologia_general' %}">
+                Odontologia general
+              </a>
+            </li>
 
-<li>
-  <a href="{% url 'myapp:servicio_implantologia' %}">
-    Implantología
-  </a>
-</li>
-
-            
+            <li>
+              <a href="{% url 'myapp:servicio_implantologia' %}">
+                Implantologia
+              </a>
+            </li>
           </ul>
         </li>
 
         <li>
           <a href="{% if is_home %}#testimonials-section{% else %}{% url 'myapp:home' %}#testimonials-section{% endif %}" class="nav-link">
-            Reseñas
+            Resenas
           </a>
         </li>
 
         <li>
           <a href="{% if is_home %}#about-section{% else %}{% url 'myapp:home' %}#about-section{% endif %}" class="nav-link">
-            Sobre mí
+            Sobre nosotros
           </a>
         </li>
 
@@ -71,15 +69,6 @@
 
       </ul>
 
-      <!--
-      <div class="d-none d-lg-inline-block">
-        <a href="{% if is_home %}#contact-section{% else %}{% url 'myapp:home' %}#contact-section{% endif %}"
-           class="btn btn-primary">
-          Turnos
-        </a>
-      </div>-->
-
-      <!-- BURGER MOBILE -->
       <a href="#"
          class="burger ml-3 site-menu-toggle js-menu-toggle d-inline-block dark d-lg-none"
          data-toggle="collapse"

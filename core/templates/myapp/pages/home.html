@@ -1,7 +1,7 @@
 {% extends "myapp/base.html" %}
 {% load static %}
 
-{% block title %}Od. Alessandrello | Odontología integral para todas las edades{% endblock %}
+{% block title %}Aura Odontologia | Odontologia integral para todas las edades{% endblock %}
 
 {% block content %}
 
@@ -14,12 +14,12 @@
         <div class="row align-items-center">
 
           <div class="col-lg-7 ml-auto order-lg-2" data-aos="fade-right" data-aos-delay="400">
-            <img src="{% static 'img/hero1.webp' %}" alt="Od. Alessandrello" class="img-fluid">
+            <img src="{% static 'img/hero1.webp' %}" alt="Aura Odontologia" class="img-fluid">
           </div>
 
           <div class="col-lg-5">
             <h1 class="heading" data-aos="fade-up" data-aos-delay="0">
-              Odontología integral
+              Odontologia integral
             </h1>
             <h2 data-aos="fade-up" data-aos-delay="50">
               Para todas las edades
@@ -27,13 +27,13 @@
 
             <div class="excerpt" data-aos="fade-up" data-aos-delay="100">
               <p>
-                <span class="highlight">Especialistas en odontopediatría, implantología y rehabilitación oral.</span>
+                <span class="highlight">Especialistas en odontopediatria, implantologia y rehabilitacion oral.</span>
               </p>
               <p>
-                Acompañamos a cada paciente en el cuidado de su salud bucal a lo largo de toda su vida, con una atención cercana, profesional y personalizada.
+                Acompanamos a cada paciente en el cuidado de su salud bucal a lo largo de toda su vida, con una atencion cercana, profesional y personalizada.
               </p>
               <p>
-                Nuestro objetivo es brindar tratamientos integrales en un espacio cálido y de confianza, priorizando la prevención, la estética y la funcionalidad.
+                Nuestro objetivo es brindar tratamientos integrales en un espacio calido y de confianza, priorizando la prevencion, la estetica y la funcionalidad.
               </p>
             </div>
 
@@ -60,89 +60,87 @@
     <div class="row mb-5">
       <div class="col-12 text-center" data-aos="fade-up">
         <span class="caption">Nuestros servicios</span>
-        <h2 class="heading">Elegí la atención que necesitás</h2>
+        <h2 class="heading">Elegi la atencion que necesitas</h2>
 
         <div class="row mb-4">
           <div class="col-12 text-center">
             <div class="visita-gratis">
               <span class="icon-check-circle"></span>
-              <strong>Turnos por WhatsApp</strong> de forma rápida y simple
+              <strong>Turnos por WhatsApp</strong> de forma rapida y simple
             </div>
           </div>
         </div>
 
         <p>
-          Conocé nuestras áreas de atención y elegí la mejor opción para vos o tu familia.
+          Conoce nuestras areas de atencion y elegi la mejor opcion para vos o tu familia.
         </p>
       </div>
     </div>
 
     <div class="row g-4">
 
-      <!-- Odontopediatría -->
+      <!-- Odontopediatria -->
       <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="50">
         <div class="pricing product-card">
           <div class="product-image">
             <img src="{% static 'img/Odontopediatria.png' %}"
-                 alt="Odontopediatría">
+                 alt="Odontopediatria">
           </div>
           <div class="body">
-            <h3 class="mb-2">Odontopediatría</h3>
+            <h3 class="mb-2">Odontopediatria</h3>
             <p class="mb-3">
-              Atención especializada para bebés, niños y adolescentes, acompañando cada etapa del crecimiento.
+              Atencion especializada para bebes, ninos y adolescentes, acompanando cada etapa del crecimiento.
             </p>
             <p class="text-center mb-0">
               <a href="{% url 'myapp:servicio_odontopediatria' %}" class="btn btn-outline-primary">
-                Ver más
+                Ver mas
               </a>
             </p>
           </div>
         </div>
       </div>
 
-      <!-- Odontología General -->
+      <!-- Odontologia General -->
       <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
         <div class="pricing product-card">
           <div class="product-image">
             <img src="{% static 'img/general.png' %}"
-                 alt="Odontología general">
+                 alt="Odontologia general">
           </div>
           <div class="body">
-            <h3 class="mb-2">Odontología general</h3>
+            <h3 class="mb-2">Odontologia general</h3>
             <p class="mb-3">
-              Controles, diagnóstico, prevención y tratamientos para cuidar tu salud bucal de forma integral.
+              Controles, diagnostico, prevencion y tratamientos para cuidar tu salud bucal de forma integral.
             </p>
             <p class="text-center mb-0">
               <a href="{% url 'myapp:servicio_implantologia' %}" class="btn btn-outline-primary">
-                Ver más
+                Ver mas
               </a>
             </p>
           </div>
         </div>
       </div>
 
-      <!-- Implantología -->
+      <!-- Implantologia -->
       <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="150">
         <div class="pricing product-card">
           <div class="product-image">
             <img src="{% static 'img/implantologia.jpg' %}"
-                 alt="Implantología dental">
+                 alt="Implantologia dental">
           </div>
           <div class="body">
-            <h3 class="mb-2">Implantología</h3>
+            <h3 class="mb-2">Implantologia</h3>
             <p class="mb-3">
-              Soluciones funcionales y estéticas para recuperar piezas dentarias y mejorar tu calidad de vida.
+              Soluciones funcionales y esteticas para recuperar piezas dentarias y mejorar tu calidad de vida.
             </p>
             <p class="text-center mb-0">
               <a href="{% url 'myapp:servicio_implantologia' %}" class="btn btn-outline-primary">
-                Ver más
+                Ver mas
               </a>
             </p>
           </div>
         </div>
       </div>
-
-      
 
     </div>
   </div>
@@ -155,20 +153,20 @@
     <div class="row justify-content-between">
 
       <div class="col-lg-4">
-        <span class="caption" data-aos="fade-up" data-aos-delay="0">ATENCIÓN INTEGRAL</span>
+        <span class="caption" data-aos="fade-up" data-aos-delay="0">ATENCION INTEGRAL</span>
 
         <h3 class="heading mb-4" data-aos="fade-up" data-aos-delay="100">
-          Cuidado odontológico cercano, profesional y personalizado
+          Cuidado odontologico cercano, profesional y personalizado
         </h3>
 
         <div class="mb-4" data-aos="fade-up" data-aos-delay="200">
           <p>
-            Brindamos atención odontológica para todas las edades, adaptando cada tratamiento a las necesidades de cada paciente y etapa de vida.
+            Brindamos atencion odontologica para todas las edades, adaptando cada tratamiento a las necesidades de cada paciente y etapa de vida.
           </p>
 
           <ul class="list-unstyled ul-check primary">
-            <li>Atención para niños, adolescentes y adultos</li>
-            <li>Prevención, diagnóstico y tratamiento integral</li>
+            <li>Atencion para ninos, adolescentes y adultos</li>
+            <li>Prevencion, diagnostico y tratamiento integral</li>
             <li>Seguimiento profesional con enfoque humano</li>
           </ul>
         </div>
@@ -177,7 +175,7 @@
           <div class="untree_co-testimonial d-flex">
             <div class="text">
               <blockquote>
-                &ldquo;Nuestro compromiso es acompañar a cada paciente en el cuidado de su salud oral,
+                &ldquo;Nuestro compromiso es acompanar a cada paciente en el cuidado de su salud oral,
                 <span class="highlight">con tratamientos pensados para cada etapa de la vida</span>.&rdquo;
               </blockquote>
 
@@ -186,8 +184,8 @@
                   <img src="{% static 'img/perfilfrente.webp' %}" alt="Profesional" class="img-fluid">
                 </div>
                 <div>
-                  <strong class="d-block">Milton I. Alessandrello</strong>
-                  <span>Odontología integral</span>
+                  <strong class="d-block">Milton Ivan Alessandrello y Lucia Daltri</strong>
+                  <span>Equipo de Aura Odontologia</span>
                 </div>
               </div>
             </div>
@@ -204,7 +202,7 @@
               <path d="M11.596 8.697l-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
             </svg>
           </span>
-          <img src="{% static 'img/consultorio.jpeg' %}" alt="Consultorio odontológico" class="img-fluid img-shadow">
+          <img src="{% static 'img/consultorio.jpeg' %}" alt="Consultorio odontologico" class="img-fluid img-shadow">
         </a>
       </div>
 
