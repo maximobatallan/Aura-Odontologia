@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,7 +25,24 @@ SECRET_KEY = "django-insecure-2!n3l7suuwji!*#)mdp46=7)%62=)o4607pbsomrgt^_9ytg4q
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "odalessandrello-production.up.railway.app",
+    "auraodontologia.up.railway.app",
+    "jubilant-grace-env.up.railway.app",
+    "od.alessandrello.ar",
+    "odalessandrello.ar",
+    "auraodontologia.ar",
+    "localhost",
+    "127.0.0.1"]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://odalessandrello-production.up.railway.app",
+    "https://auraodontologia.up.railway.app",
+    "https://jubilant-grace-env.up.railway.app",
+    "https://od.alessandrello.ar",
+    "https://odalessandrello.ar",
+    "https://auraodontologia.ar",
+]
 
 
 # Application definition
@@ -38,6 +55,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "turnos",
 ]
 
 MIDDLEWARE = [
@@ -48,6 +66,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = "config.urls"
@@ -103,16 +122,44 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/6.0/topics/i18n/
 
-LANGUAGE_CODE = "en-us"
-
-TIME_ZONE = "UTC"
-
+LANGUAGE_CODE = "es-ar"
+TIME_ZONE = "America/Argentina/Buenos_Aires"
 USE_I18N = True
-
 USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
-STATIC_URL = "static/"
+STATIC_URL = 'static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+
+# Default primary key field type
+# https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+DEFAULT_FROM_EMAIL = "Turnos Aura Odontologia <notificaciondepaginaweb@gmail.com>"
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'notificaciondepaginaweb@gmail.com'
+EMAIL_HOST_PASSWORD = 'iddaknkbspmdhanl'
+EMAIL_TIMEOUT = 10
+
+TURNOS_USAR_GOOGLE_CALENDAR = False
+TURNOS_GOOGLE_CALENDAR_ID = "primary"
+
+GOOGLE_CLIENT_ID= os.getenv("GOOGLE_CLIENT_ID", "")
+GOOGLE_CLIENT_SECRET= os.getenv("GOOGLE_CLIENT_SECRET", "")
+GOOGLE_OAUTH_SCOPES = [
+    "openid",
+    "https://www.googleapis.com/auth/userinfo.email",
+    "https://www.googleapis.com/auth/userinfo.profile",
+    "https://www.googleapis.com/auth/calendar",
+]
+
+GOOGLE_OAUTH_REDIRECT_URI = "http://127.0.0.1:8000/turnos/google/callback/"

@@ -1,0 +1,39 @@
+{% load static %}
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- SEO -->
+<meta name="description"
+      content="{{ page_description|default:'Aura Odontologia en Buenos Aires. Atencion odontologica integral para ninos, adolescentes y adultos con turnos rapidos por WhatsApp.' }}">
+
+<meta name="keywords"
+      content="{{ page_keywords|default:'odontologia integral, odontopediatria, implantologia, dentista buenos aires, salud bucal, consultorio odontologico' }}">
+
+<meta name="author" content="Aura Odontologia">
+
+<!-- Open Graph -->
+<meta property="og:title"
+      content="{{ og_title|default:'Aura Odontologia · Odontologia integral para todas las edades' }}">
+
+<meta property="og:description"
+      content="{{ og_description|default:'Atencion odontologica cercana, profesional y personalizada para toda la familia.' }}">
+
+<meta property="og:image"
+      content="{{ request.scheme }}://{{ request.get_host }}{% static 'img/hero1.webp' %}">
+
+<meta property="og:url"
+      content="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_AR">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Aura Odontologia · Odontologia integral para todas las edades">
+<meta name="twitter:description" content="Atencion odontologica profesional para toda la familia. Turnos rapidos por WhatsApp.">
+<meta name="twitter:image"
+      content="{{ request.scheme }}://{{ request.get_host }}{% static 'img/hero1.webp' %}">
+
+<!-- Theme -->
+<meta name="theme-color" content="#ffffff">

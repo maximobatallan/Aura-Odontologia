@@ -1,0 +1,115 @@
+<div class="untree_co-section" id="contact-section">
+  <div class="container">
+    <div class="row mb-4" data-aos="fade-up" data-aos-delay="0">
+      <div class="col-12 text-center">
+        <h2 class="heading">Contáctenos</h2>
+        <p>Dejanos tu consulta y coordiná tu turno de forma simple y rápida.</p>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <!-- FORMULARIO -->
+      <div class="col-lg-7">
+        <form action="{% url 'myapp:save_formulario' %}" method="post"
+              class="contact-form" data-aos="fade-up" data-aos-delay="100">
+          {% csrf_token %}
+
+          <input type="hidden" name="next" value="{{ request.get_full_path }}">
+          <input type="hidden" name="producto" value="{{ producto|default:'general' }}">
+          <input type="hidden" name="origen" value="{{ origen|default:'directo' }}">
+
+          <input type="hidden" name="gclid" value="{{ request.GET.gclid|default:'' }}">
+          <input type="hidden" name="fbclid" value="{{ request.GET.fbclid|default:'' }}">
+          <input type="hidden" name="utm_source" value="{{ request.GET.utm_source|default:'' }}">
+          <input type="hidden" name="utm_medium" value="{{ request.GET.utm_medium|default:'' }}">
+          <input type="hidden" name="utm_campaign" value="{{ request.GET.utm_campaign|default:'' }}">
+          <input type="hidden" name="utm_term" value="{{ request.GET.utm_term|default:'' }}">
+          <input type="hidden" name="utm_content" value="{{ request.GET.utm_content|default:'' }}">
+
+          <div class="row">
+            <div class="col-12">
+              <div class="form-group">
+                <label for="name">Nombre</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 col-12">
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-12">
+              <div class="form-group">
+                <label for="telefono">Teléfono</label>
+                <input type="text" class="form-control" id="telefono" name="telefono" required>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Mensaje</label>
+            <textarea class="form-control" id="message" name="message" cols="30" rows="5" required placeholder="Contanos en qué podemos ayudarte"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Enviar consulta</button>
+        </form>
+      </div>
+
+      <!-- INFO / CTA -->
+      <div class="col-lg-4 ml-auto" data-aos="fade-up" data-aos-delay="200">
+        <h3 class="h5 mb-4">Información de contacto</h3>
+
+        <address class="text-black d-flex">
+          <span class="mt-1 icon-room mr-2"></span>
+          <span>{{ direccion_local|default:"Besares 2477, 3°D" }}</span>
+        </address>
+
+        <ul class="list-unstyled ul-links mb-4">
+
+          <li>
+            <a href="https://wa.me/{{ telefono_whatsapp }}?text={{ whatsapp_text|urlencode }}"
+               target="_blank"
+               rel="noopener"
+               class="d-flex">
+              <span class="mt-1 icon-phone mr-2"></span>
+              <span>WhatsApp</span>
+            </a>
+          </li>
+
+          <li class="d-flex">
+            <span class="mt-1 icon-envelope mr-2"></span>
+            <span>Correo electronico disponible</span>
+          </li>
+
+          <li>
+            <a href="https://odalessandrello.ar/" target="_blank" rel="noopener" class="d-flex">
+              <span class="mt-1 icon-globe mr-2"></span>
+              <span>Sitio web</span>
+            </a>
+          </li>
+
+        </ul>
+
+        <div class="p-4 bg-light rounded">
+          <h4 class="h6 mb-3">Turnos por WhatsApp</h4>
+          <p class="mb-3">
+            También podés escribirnos directamente por WhatsApp para consultar disponibilidad y coordinar tu atención.
+          </p>
+          <a href="https://wa.me/{{ telefono_whatsapp }}?text={{ whatsapp_text|urlencode }}"
+             target="_blank"
+             rel="noopener"
+             class="btn btn-outline-primary btn-block">
+            Solicitar turno
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,71 @@
+{% extends "myapp/servicios/base_servicio.html" %}
+{% load static %}
+
+{% block title %}Odontopediatria | Aura Odontologia{% endblock %}
+
+{% block producto_imagen %}
+  <img src="{% static 'img/Odontopediatria.png' %}" alt="Odontopediatria" class="img-fluid">
+{% endblock %}
+
+{% block producto_titulo %}Odontopediatria{% endblock %}
+
+{% block producto_bajada %}
+  <p>Atencion especializada para bebes, ninos y adolescentes en un entorno calido y de confianza.</p>
+  <p><span class="highlight">Acompanamos cada etapa del crecimiento</span> cuidando la salud bucal desde temprano.</p>
+{% endblock %}
+
+{% block producto_contenido %}
+<div class="untree_co-section bg-light" id="features-section">
+  <div class="container">
+    <div class="row justify-content-between">
+      <div class="col-lg-5 order-lg-2 js-custom-dots">
+
+        <a href="#" class="service link horizontal d-flex active" data-aos="fade-left" data-aos-delay="0">
+          <div class="service-icon color-1 mb-4">🦷</div>
+          <div class="service-contents">
+            <h3>Controles preventivos</h3>
+            <p>Seguimiento periodico para detectar a tiempo caries, habitos y alteraciones del desarrollo.</p>
+          </div>
+        </a>
+
+        <a href="#" class="service link horizontal d-flex" data-aos="fade-left" data-aos-delay="100">
+          <div class="service-icon color-2 mb-4">👶</div>
+          <div class="service-contents">
+            <h3>Primera consulta</h3>
+            <p>Orientacion para mamas y papas sobre higiene, lactancia, chupete, mamadera y erupcion dental.</p>
+          </div>
+        </a>
+
+        <a href="#" class="service link horizontal d-flex" data-aos="fade-left" data-aos-delay="200">
+          <div class="service-icon color-3 mb-4">😊</div>
+          <div class="service-contents">
+            <h3>Odontologia sin miedo</h3>
+            <p>Buscamos que cada visita sea positiva, con paciencia, contencion y adaptacion progresiva.</p>
+          </div>
+        </a>
+
+        <a href="#" class="service link horizontal d-flex" data-aos="fade-left" data-aos-delay="300">
+          <div class="service-icon color-4 mb-4">📚</div>
+          <div class="service-contents">
+            <h3>Educacion y habitos</h3>
+            <p>Ensenamos rutinas simples para cuidar la sonrisa en casa y prevenir problemas futuros.</p>
+          </div>
+        </a>
+
+      </div>
+
+      <div class="col-lg-7">
+        <div class="img-shadow">
+          <div class="owl-single no-dots owl-carousel">
+            <div class="item"><span class="number">1/4</span><img src="{% static 'img/odontopediatria-1.webp' %}" alt="Atencion odontopediatrica" class="img-fluid"></div>
+            <div class="item"><span class="number">2/4</span><img src="{% static 'img/odontopediatria-2.webp' %}" alt="Consultorio infantil" class="img-fluid"></div>
+            <div class="item"><span class="number">3/4</span><img src="{% static 'img/odontopediatria-3.jpg' %}" alt="Consulta con ninos" class="img-fluid"></div>
+            <div class="item"><span class="number">4/4</span><img src="{% static 'img/odontopediatria-4.webp' %}" alt="Prevencion infantil" class="img-fluid"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+{% endblock %}

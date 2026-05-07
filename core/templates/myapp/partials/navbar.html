@@ -1,0 +1,81 @@
+{% load static %}
+
+<nav class="site-nav dark js-site-navbar mb-5 site-navbar-target">
+  <div class="container">
+    <div class="site-navigation d-flex align-items-center justify-content-between">
+
+      <!-- LOGO -->
+      <a href="{% url 'myapp:home' %}" class="logo m-0 d-flex align-items-center">
+        <img src="{% static 'img/logo.webp' %}"
+             alt="Aura Odontologia odontologia integral para todas las edades"
+             class="logo-pc mr-2">
+        <span class="logo-text">
+          Aura Odontologia<span class="text-primary">.</span>
+        </span>
+      </a>
+
+      <!-- MENU -->
+      <ul class="js-clone-nav d-none d-lg-inline-block site-menu">
+
+        <li class="{% if is_home %}active{% endif %}">
+          <a href="{% if is_home %}#home-section{% else %}{% url 'myapp:home' %}#home-section{% endif %}" class="nav-link">
+            Inicio
+          </a>
+        </li>
+
+        <li class="has-children">
+          <a href="{% if is_home %}#servicios-section{% else %}{% url 'myapp:home' %}#servicios-section{% endif %}" class="nav-link">
+            Servicios
+          </a>
+
+          <ul class="dropdown">
+            <li>
+              <a href="{% url 'myapp:servicio_odontopediatria' %}">
+                Odontopediatria
+              </a>
+            </li>
+
+            <li>
+              <a href="{% url 'myapp:servicio_odontologia_general' %}">
+                Odontologia general
+              </a>
+            </li>
+
+            <li>
+              <a href="{% url 'myapp:servicio_implantologia' %}">
+                Implantologia
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="{% if is_home %}#testimonials-section{% else %}{% url 'myapp:home' %}#testimonials-section{% endif %}" class="nav-link">
+            Resenas
+          </a>
+        </li>
+
+        <li>
+          <a href="{% if is_home %}#about-section{% else %}{% url 'myapp:home' %}#about-section{% endif %}" class="nav-link">
+            Sobre nosotros
+          </a>
+        </li>
+
+        <li>
+          <a href="{% if is_home %}#contact-section{% else %}{% url 'myapp:home' %}#contact-section{% endif %}" class="nav-link">
+            Contacto
+          </a>
+        </li>
+
+      </ul>
+
+      <a href="#"
+         class="burger ml-3 site-menu-toggle js-menu-toggle d-inline-block dark d-lg-none"
+         data-toggle="collapse"
+         data-target="#main-navbar">
+        <span></span>
+      </a>
+
+    </div>
+  </div>
+</nav>

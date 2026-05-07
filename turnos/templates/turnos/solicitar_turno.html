@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Solicitar turno</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f6f7fb;
+      color: #222;
+    }
+
+    .wrap {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.08);
+      padding: 32px;
+    }
+
+    h1 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    p.desc {
+      text-align: center;
+      color: #666;
+      margin-bottom: 30px;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .group.full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .form-control,
+    .form-select {
+      width: 100%;
+      height: 46px;
+      border: 1px solid #d9d9d9;
+      border-radius: 12px;
+      padding: 0 14px;
+      box-sizing: border-box;
+      font-size: 15px;
+    }
+
+    textarea.form-control {
+      height: auto;
+      min-height: 120px;
+      padding: 14px;
+    }
+
+    .errorlist {
+      margin: 8px 0 0;
+      padding: 0;
+      list-style: none;
+      color: #c62828;
+      font-size: 14px;
+    }
+
+    .actions {
+      text-align: center;
+      margin-top: 24px;
+    }
+
+    .btn-submit {
+      border: 0;
+      border-radius: 999px;
+      padding: 14px 28px;
+      background: #111;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .help {
+      font-size: 14px;
+      color: #666;
+      margin-top: 6px;
+    }
+
+    @media (max-width: 768px) {
+      .row {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>Solicitar turno</h1>
+      <p class="desc">Elegí profesional, fecha y horario disponible.</p>
+
+      <form method="post">
+        {% csrf_token %}
+
+        {% if form.non_field_errors %}
+          <div>{{ form.non_field_errors }}</div>
+        {% endif %}
+
+        <div class="row">
+          <div class="group">
+            <label for="{{ form.nombre.id_for_label }}">Nombre</label>
+            {{ form.nombre }}
+            {{ form.nombre.errors }}
+          </div>
+
+          <div class="group">
+            <label for="{{ form.apellido.id_for_label }}">Apellido</label>
+            {{ form.apellido }}
+            {{ form.apellido.errors }}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="group">
+            <label for="{{ form.email.id_for_label }}">Email</label>
+            {{ form.email }}
+            {{ form.email.errors }}
+          </div>
+
+          <div class="group">
+            <label for="{{ form.telefono.id_for_label }}">Teléfono</label>
+            {{ form.telefono }}
+            {{ form.telefono.errors }}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="group">
+            <label for="{{ form.documento.id_for_label }}">Documento</label>
+            {{ form.documento }}
+            {{ form.documento.errors }}
+          </div>
+
+          <div class="group">
+            <label for="{{ form.profesional.id_for_label }}">Profesional</label>
+            {{ form.profesional }}
+            {{ form.profesional.errors }}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="group">
+            <label for="{{ form.fecha.id_for_label }}">Fecha</label>
+            {{ form.fecha }}
+            {{ form.fecha.errors }}
+          </div>
+
+          <div class="group">
+            <label for="{{ form.hora_inicio.id_for_label }}">Hora disponible</label>
+            {{ form.hora_inicio }}
+            {{ form.hora_inicio.errors }}
+            <div class="help" id="horarios-help">Seleccioná profesional y fecha para ver horarios.</div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="group full">
+            <label for="{{ form.motivo.id_for_label }}">Motivo</label>
+            {{ form.motivo }}
+            {{ form.motivo.errors }}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="group full">
+            <label for="{{ form.observaciones.id_for_label }}">Observaciones</label>
+            {{ form.observaciones }}
+            {{ form.observaciones.errors }}
+          </div>
+        </div>
+
+        <div class="actions">
+          <button type="submit" class="btn-submit">Enviar solicitud</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const profesionalField = document.getElementById("id_profesional");
+      const fechaField = document.getElementById("id_fecha");
+      const horaField = document.getElementById("id_hora_inicio");
+      const helpText = document.getElementById("horarios-help");
+
+      async function cargarHorarios() {
+        const profesionalId = profesionalField.value;
+        const fecha = fechaField.value;
+
+        horaField.innerHTML = '<option value="">Seleccionar hora</option>';
+
+        if (!profesionalId || !fecha) {
+          helpText.textContent = "Seleccioná profesional y fecha para ver horarios.";
+          return;
+        }
+
+        helpText.textContent = "Cargando horarios...";
+
+        const url = `/turnos/api/horarios-disponibles/?profesional_id=${profesionalId}&fecha=${fecha}`;
+
+        try {
+          const response = await fetch(url);
+          const data = await response.json();
+
+          horaField.innerHTML = "";
+
+          if (!data.ok) {
+            horaField.innerHTML = '<option value="">Sin horarios</option>';
+            helpText.textContent = data.error || "No se pudieron cargar los horarios.";
+            return;
+          }
+
+          if (!data.horarios || data.horarios.length === 0) {
+            horaField.innerHTML = '<option value="">Sin horarios disponibles</option>';
+            helpText.textContent = "No hay horarios disponibles para esa fecha.";
+            return;
+          }
+
+          horaField.innerHTML = '<option value="">Seleccionar hora</option>';
+
+          data.horarios.forEach(function (hora) {
+            const option = document.createElement("option");
+            option.value = hora;
+            option.textContent = hora;
+            horaField.appendChild(option);
+          });
+
+          helpText.textContent = "Elegí uno de los horarios disponibles.";
+        } catch (error) {
+          console.error(error);
+          horaField.innerHTML = '<option value="">Error al cargar</option>';
+          helpText.textContent = "Ocurrió un error al consultar horarios.";
+        }
+      }
+
+      profesionalField.addEventListener("change", cargarHorarios);
+      fechaField.addEventListener("change", cargarHorarios);
+    });
+  </script>
+</body>
+</html>
