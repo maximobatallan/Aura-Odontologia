@@ -28,6 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     "odalessandrello-production.up.railway.app",
     "auraodontologia.up.railway.app",
+    "jubilant-grace-env.up.railway.app",
     "od.alessandrello.ar",
     "odalessandrello.ar",
     "auraodontologia.ar",
@@ -37,6 +38,7 @@ ALLOWED_HOSTS = [
 CSRF_TRUSTED_ORIGINS = [
     "https://odalessandrello-production.up.railway.app",
     "https://auraodontologia.up.railway.app",
+    "https://jubilant-grace-env.up.railway.app",
     "https://od.alessandrello.ar",
     "https://odalessandrello.ar",
     "https://auraodontologia.ar",
