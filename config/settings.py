@@ -27,10 +27,20 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     "odalessandrello-production.up.railway.app",
+    "auraodontologia.up.railway.app",
     "od.alessandrello.ar",
     "odalessandrello.ar",
+    "auraodontologia.ar",
     "localhost",
     "127.0.0.1"]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://odalessandrello-production.up.railway.app",
+    "https://auraodontologia.up.railway.app",
+    "https://od.alessandrello.ar",
+    "https://odalessandrello.ar",
+    "https://auraodontologia.ar",
+]
 
 
 # Application definition
